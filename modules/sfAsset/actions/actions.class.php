@@ -244,7 +244,6 @@ class sfAssetActions extends BasesfAssetActions {
     $upload_name = "Filedata";
     $filename = preg_replace('/[^' . $valid_chars_regex . ']|\.+$/i', "", basename($_FILES[$upload_name]['name']));
 
-
     //graba la imatge en la BD
 
     $asset = new sfAsset();
