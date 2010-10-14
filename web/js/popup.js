@@ -1,38 +1,31 @@
-function setImageField(url, thumbUrl, id)
+function setImageField(src)
 {
-  var win = null;
-  if (typeof tinyMCEPopup != 'undefined')
-  {
-    var win = tinyMCEPopup.getWindowArg('window');
-  }
+  opener.sfAssetsLibrary.fileBrowserReturn(src);
+  window.close();
+}
 
-  if (win)
-  {
-    if (tinyMCEPopup.getWindowArg('type') == 'image' && win.ImageDialog.showPreviewImage)
-    {
-      win.ImageDialog.showPreviewImage(url);
-    }
+function escollirMida()
+{
+   $(this).append("<input type='text' value='mida' />");
+}
 
-    win.document.getElementById(tinyMCEPopup.getWindowArg('input')).value = url;
-    tinyMCEPopup.close();
-  }
-  else
-  {
-    if (!opener)
-    {
-      opener = window.opener;
-    }
-    opener.sfAssetsLibrary.fileBrowserReturn(url, thumbUrl, id);
+function getUrlParam(paramName)
+{
+    var reParam = new RegExp('(?:[\?&]|&amp;)' + paramName + '=([^&]+)', 'i') ;
+    var match = window.location.search.match(reParam) ;
+
+    return (match && match.length > 1) ? match[1] : '' ;
+}
+
+function setImageFieldCkeditor(src, funcNum)
+{
+   window.opener.CKEDITOR.tools.callFunction(funcNum, src);
     window.close();
-  }
 }
 
-// XXX unused...
-function addImageField(url, id)
+function setImageFieldImageTag(src, id)
 {
-  if (!opener)
-  {
-    opener = window.opener;
-  }
-  opener.sfAssetsLibrary.fileBrowserAdd(url, id);
+    opener.setImage(src, id);
+    window.close();
 }
+

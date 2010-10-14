@@ -1,75 +1,70 @@
-<?php use_javascript('/sfAssetsLibraryPlugin/js/util') ?>
-<?php use_helper('sfAsset') ?>
-
-<?php if ($folder->isRoot()): ?>
+<?php use_helper('JavascriptBase', 'sfAsset') ?>
+ <?php if (!$sf_user->hasAttribute('popup', 'sf_admin/sf_asset/navigation')): ?>
 <div class="form-row">
-  <?php echo image_tag('/sfAssetsLibraryPlugin/images/images.png', 'alt=images align=top') ?>
-  <?php echo link_to(__('Mass upload', null, 'sfAsset'), '@sf_asset_library_mass_upload') ?>
+  <?php echo image_tag('/sfAssetsLibraryPlugin/images/images.png', 'align=top') ?>
+  <?php echo str_replace('%2F', '/', link_to(__('Mass upload', null, 'sfAsset'), 'sfAsset/massUpload?parent_folder='. $sf_params->get('dir'))) ?>
 </div>
 <?php endif ?>
-
-<form action="<?php echo url_for('@sf_asset_library_add_quick') ?>" method="post" enctype="multipart/form-data">
-  <div class="form-row">
-    <label for="new_file">
-      <?php echo image_tag('/sfAssetsLibraryPlugin/images/image_add.png', 'alt=add align=top') ?>
-      <?php echo link_to(__('Upload a file here', null, 'sfAsset'), '@sf_asset_library_add_quick', array('class' => 'toggle', 'rel' => '{ div: \'input_new_file\'}')) ?>
-    </label>
-    <div class="content" id="input_new_file" style="display:none">
-      <?php echo $fileform['file'] ?>
-      <input type="submit" value="<?php echo __('Add', null, 'sfAsset') ?>" />
-    </div>
+<?php echo form_tag('sfAsset/addQuick', 'method=post multipart=true') ?>
+<?php echo input_hidden_tag('parent_folder', $sf_params->get('dir')) ?>
+<div class="form-row">
+  <label for="new_file">
+    <?php echo image_tag('/sfAssetsLibraryPlugin/images/image_add.png', 'align=top') ?>
+    <?php echo link_to_function(__('Upload a file here', null, 'sfAsset'), 'document.getElementById("input_new_file").style.display="block"') ?>
+  </label>
+  <div class="content" id="input_new_file" style="display:none">
+    <?php echo input_file_tag('new_file', 'size=7') ?> <?php echo submit_tag(__('Add', null, 'sfAsset')) ?>
   </div>
-  <?php echo $fileform->renderHiddenFields() ?>
+</div>
 </form>
 
-<form action="<?php echo url_for('@sf_asset_library_create_folder') ?>" method="post">
-  <div class="form-row">
-    <label for="new_directory">
-      <?php echo image_tag('/sfAssetsLibraryPlugin/images/folder_add.png', 'alt=add align=top') ?>
-      <?php echo link_to(__('Add a subfolder', null, 'sfAsset'), '@sf_asset_library_create_folder', array('class' => 'toggle', 'rel' => '{ div: \'input_new_directory\'}')) ?>
-    </label>
-    <div class="content" id="input_new_directory" style="display:none">
-      <?php echo $folderform['name'] ?>
-      <input type="submit" value="<?php echo __('Create', null, 'sfAsset') ?>" />
-    </div>
+<?php echo form_tag('sfAsset/createFolder', 'method=post') ?>
+<?php echo input_hidden_tag('parent_folder', $sf_params->get('dir')) ?>
+<div class="form-row">
+  <label for="new_directory">
+    <?php echo image_tag('/sfAssetsLibraryPlugin/images/folder_add.png', 'align=top') ?>
+    <?php echo link_to_function(__('Add a subfolder', null, 'sfAsset'), 'document.getElementById("input_new_directory").style.display="block"') ?>
+  </label>
+  <div class="content" id="input_new_directory" style="display:none">
+    <?php echo input_tag('name', null, 'size=17') ?> <?php echo submit_tag(__('Create', null, 'sfAsset')) ?>
   </div>
-  <?php echo $folderform->renderHiddenFields() ?>
+</div>
 </form>
 
 <?php if (!$folder->isRoot()): ?>
-<form action="<?php echo url_for('@sf_asset_library_rename_folder') ?>" method="post">
-  <div class="form-row">
-    <label for="new_folder">
-      <?php echo image_tag('/sfAssetsLibraryPlugin/images/folder_edit.png', 'alt=edit align=top') ?>
-      <?php echo link_to(__('Rename folder', null, 'sfAsset'), '@sf_asset_library_rename_folder', array('class' => 'toggle', 'rel' => '{ div: \'input_new_name\'}')) ?>
-    </label>
-    <div class="content" id="input_new_name" style="display:none">
-      <?php echo $renameform['name'] ?>
-      <input type="submit" value="<?php echo __('Rename', null, 'sfAsset') ?>" />
-    </div>
+<?php echo form_tag('sfAsset/renameFolder', 'method=post') ?>
+<?php echo input_hidden_tag('id', $folder->getId()) ?>
+<div class="form-row">
+  <label for="new_folder">
+    <?php echo image_tag('/sfAssetsLibraryPlugin/images/folder_edit.png', 'align=top') ?>
+    <?php echo link_to_function(__('Rename folder', null, 'sfAsset'), 'document.getElementById("input_new_name").style.display="block";document.getElementById("new_name").focus()') ?>
+  </label>
+  <div class="content" id="input_new_name" style="display:none">
+    <?php echo input_tag('new_name', $folder->getName(), 'size=17') ?>
+    <?php echo submit_tag(__('Ok', null, 'sfAsset')) ?>
   </div>
-  <?php echo $renameform->renderHiddenFields() ?>
+</div>
 </form>
 
-<form action="<?php echo url_for('@sf_asset_library_move_folder') ?>" method="post">
-  <div class="form-row">
-    <label for="move_folder">
-      <?php echo image_tag('/sfAssetsLibraryPlugin/images/folder_go.png', 'alt=go align=top') ?>
-      <?php echo link_to(__('Move folder', null, 'sfAsset'), '@sf_asset_library_move_folder', array('class' => 'toggle', 'rel' => '{ div: \'input_move_folder\'}')) ?>
-    </label>
-    <div class="content" id="input_move_folder" style="display:none">
-      <?php echo $moveform['parent_folder'] ?>
-      <input type="submit" value="<?php echo __('Move', null, 'sfAsset') ?>" />
-    </div>
+<?php echo form_tag('sfAsset/moveFolder', 'method=post') ?>
+<?php echo input_hidden_tag('id', $folder->getId()) ?>
+<div class="form-row">
+  <label for="new_folder">
+    <?php echo image_tag('/sfAssetsLibraryPlugin/images/folder_go.png', 'align=top') ?>
+    <?php echo link_to_function(__('Move folder', null, 'sfAsset'), 'document.getElementById("input_move_folder").style.display="block"') ?>
+  </label>
+  <div class="content" id="input_move_folder" style="display:none">
+    <?php echo select_tag('new_folder', options_for_select(sfAssetFolderPeer::getAllNonDescendantsPaths($folder), $folder->getParentPath()), 'style=width:170px') ?>
+    <?php echo submit_tag(__('Ok', null, 'sfAsset')) ?>
   </div>
-  <?php echo $moveform->renderHiddenFields() ?>
+</div>
 </form>
 
 <div class="form-row">
-  <?php echo image_tag('/sfAssetsLibraryPlugin/images/folder_delete.png', 'alt=delete align=top') ?>
-  <?php echo link_to(__('Delete folder', null, 'sfAsset'), '@sf_asset_library_delete_folder?id=' . $folder->getId(), array(
-    'method'  => 'delete',
+  <?php echo image_tag('/sfAssetsLibraryPlugin/images/folder_delete.png', 'align=top') ?>
+  <?php echo link_to(__('Delete folder', null, 'sfAsset'), 'sfAsset/deleteFolder?id='.$folder->getId(), array(
+    'post' => true,
     'confirm' => __('Are you sure?', null, 'sfAsset'),
   )) ?>
 </div>
-<?php endif ?>
+<?php endif; ?>

@@ -17,43 +17,8 @@ class sfAssetRouting
   {
     $r = $event->getSubject();
 
-    // prepend our routes
-
-    $idActions = array(
-     #'tiny_config'   => 'tinyConfigMedia',
-      'delete_folder' => 'deleteFolder',
-      'delete_asset'  => 'deleteAsset',
-      'edit'          => 'edit',
-    );
-
-    $actions = array(
-      'move_folder'   => 'moveFolder',
-      'rename_folder' => 'renameFolder',
-      'mass_upload'   => 'massUpload',
-      'create_folder' => 'createFolder',
-      'add_quick'     => 'addQuick',
-      'rename_asset'  => 'renameAsset',
-      'replace_asset' => 'replaceAsset',
-      'move_asset'    => 'moveAsset',
-      'update'        => 'update',
-      'search'        => 'search',
-      'list'          => 'list',
-    );
-
-    foreach ($actions as $route => $action)
-    {
-      $r->prependRoute('sf_asset_library_' . $route, new sfRoute('/sfAsset/' . $action, array(
-        'module' => 'sfAsset', 'action' => $action,
-      )));
-    }
-
-    foreach ($idActions as $route => $action)
-    {
-      $r->prependRoute('sf_asset_library_' . $route, new sfRoute('/sfAsset/' . $action . '/:id', array(
-        'module' => 'sfAsset',
-        'action' => $action,
-      )));
-    }
+    // preprend our routes
+    $r->prependRoute('sf_guard_signin', new sfRoute('/login', array('module' => 'sfGuardAuth', 'action' => 'signin')));
 
     $r->prependRoute('sf_asset_library_dir', new sfRoute('/sfAsset/dir/:dir', array(
         'module'    => 'sfAsset',
@@ -61,6 +26,13 @@ class sfAssetRouting
         'dir'       => sfConfig::get('app_sfAssetsLibrary_upload_dir', 'media')
       ),
       array('dir' => '.*?'))
+    );
+     $r->prependRoute('sf_asset_mass_upload', new sfRoute('/sfAsset/massUpload/:parent_folder', array(
+        'module'    => 'sfAsset',
+        'action'    => 'massUpload',
+        'parent_folder'       => sfConfig::get('app_sfAssetsLibrary_upload_dir', 'media')
+      ),
+      array('parent_folder' => '.*?'))
     );
   }
 }

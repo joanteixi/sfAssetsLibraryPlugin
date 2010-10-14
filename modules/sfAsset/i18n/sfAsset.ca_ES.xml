@@ -1,0 +1,348 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en_US" datatype="plaintext">
+    <body>
+      <trans-unit>
+        <source>Asset Library</source>
+        <target>Mediateca</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Tools</source>
+        <target>Eines</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Folder management</source>
+        <target>Gestió de la carpeta</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Add a subfolder</source>
+        <target>Crear una subcarpeta</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Upload a file here</source>
+        <target>Pujar un fitxer aquí</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Parent directory</source>
+        <target>Nivell superior</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Rename folder</source>
+        <target>Reanomenar la carpeta</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Move folder</source>
+        <target>Moure la carpeta</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Delete folder</source>
+        <target>Esborrar la carpeta</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Create</source>
+        <target>Crear</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Add</source>
+        <target>Afegir</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sort order</source>
+        <target>Endreçar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sorted by name</source>
+        <target>Endreçat pel nom</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sorted by date</source>
+        <target>Endreçat per data</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sort by name</source>
+        <target>Endreçar per nom</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sort by date</source>
+        <target>Endreçar per data</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Search</source>
+        <target>Cercar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Folder:</source>
+        <target>Carpeta:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Filename:</source>
+        <target>Nom del fitxer:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Author:</source>
+        <target>Autor:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Copyright:</source>
+        <target>Copyright :</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Created on:</source>
+        <target>Creat el:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Description:</source>
+        <target>Descripció:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Asset edition</source>
+        <target>Editar un element</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Path:</source>
+        <target>Camí:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Media upload</source>
+        <target>Upload un media</target>
+      </trans-unit>
+      <trans-unit>
+        <source>File:</source>
+        <target>Nou fitxer:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Parent folder:</source>
+        <target>Carpeta pare:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Metadata</source>
+        <target>Meta informació</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Title:</source>
+        <target>Títol:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Description:</source>
+        <target>Descripció:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Type:</source>
+        <target>Tipus:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Search results</source>
+        <target>Resultats de la cerca</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Back to the list</source>
+        <target>Tornar a la llista</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Copyright: %copyright%</source>
+        <target>Copyright : %copyright%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Author: %author%</source>
+        <target>Autor: %author%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Created on %date%</source>
+        <target>Creat el %date%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>&lt; Previous page</source>
+        <target>&lt; Pàgina anterior</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Page %number% on %total%</source>
+        <target>Pàgina %number% de %total%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Next page &gt;</source>
+        <target>Següent pàgina &gt;</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Folder statistics</source>
+        <target>Estadístiques</target>
+      </trans-unit>
+      <trans-unit>
+        <source>[1]One subfolder|(1,+Inf)%nb% subfolders</source>
+        <target>[1]Una carpeta|(1,+Inf)%nb% carpetes</target>
+      </trans-unit>
+      <trans-unit>
+        <source>[1]One file, %weight% Kb|(1,+Inf]%nb% files, %weight% Kb</source>
+        <target>[1]Un fitxer, %weight% Ko|(1,+Inf]%nb% fitxers, %weight% Kb</target>
+      </trans-unit>
+      <trans-unit>
+        <source>See full-size version</source>
+        <target>Veure versió original</target>
+      </trans-unit>
+      <trans-unit>
+        <source>%weight% Kb</source>
+        <target>%weight% Kb</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Created on %date%</source>
+        <target>Creat el %date%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Rename</source>
+        <target>Reanomemar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Move</source>
+        <target>Moure</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Replace</source>
+        <target>Reemplaçar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Delete</source>
+        <target>Esborrar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Ok</source>
+        <target>Ok</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The file has been replaced</source>
+        <target>El fitxer s'ha reemplaçat</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The file has been moved</source>
+        <target>El fitxer s'ha mogut</target>
+      </trans-unit>
+      <trans-unit>
+        <source>A problem occurren: The file has not been moved</source>
+        <target>Hi ha hagut un problema: el fitxer no s'ha pogut moure</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The file has been renamed</source>
+        <target>El fitxer ha canviat de nom</target>
+      </trans-unit>
+      <trans-unit>
+        <source>A problem occurred: The file has not been renamed</source>
+        <target>Hi ha hagut un problema: el fitxer no s'ha pogut reanomenar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Asset "%asset%" not found</source>
+        <target>No s'ha trobat el fitxer "%asset%"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Filetype "%type%" not allowed</source>
+        <target>El tipus de fitxer "%type%" no està permès</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The target folder "%folder%" already contains an asset named "%name%". The asset has not been moved.</source>
+        <target>La carpeta destí "%folder%" ja conté un fixer anomenat "%name%". El fitxer no es pot moure.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The filename "%name%" contains incorrect characters. The asset has not be altered.</source>
+        <target>El nom "%name%" conté caràcters incorrectes. El fitxer no es pot modificar.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Some or all of the file operations failed. It is possible that the moved asset or its thumbnails are missing.</source>
+        <target>Alguna o totes les operacions han fallat. És possible que el fitxer o la seva miniatura falti.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The root folder cannot be moved</source>
+        <target>La carpeta arrel no es pot moure.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The target folder "%folder%" already contains a folder named "%name%". The folder has not been moved.</source>
+        <target>La carpeta destí "%folder%" ja conté una carpeta anomenada "%name%". La carpeta no es pot moure.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The target folder cannot be a subfolder of moved folder. The folder has not been moved.</source>
+        <target>La carpeta destí no pot ser una subcarpeta de la que vols moure. La carpeta no s'ha mogut.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The parent folder already contains a folder named "%name%". The folder has not been renamed.</source>
+        <target>La carpeta pare ja conté una carpeta anomenada "%name%". La carpeta no s'ha mogut.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The target folder name "%name%" contains incorrect characters. The folder has not be renamed.</source>
+        <target>El nom "%name%" conté caràcters incorrectes. La carpeta no es pot modificar.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Impossible to delete folder "%name%"</source>
+        <target>Impossible suprimir la carpeta "%name%"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Impossible to create folder "%name%"</source>
+        <target>Impossible crear la carpeta "%name%"</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Mass upload</source>
+        <target>Pujar en sèrie</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Mass upload files</source>
+        <target>Pujar fitxer en sèrie</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Place under:</source>
+        <target>Col·locar sota:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>File %nb%:</source>
+        <target>Fitxer %nb% :</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Files successfully uploaded</source>
+        <target>Els fitxers s'han pujat correctament</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Back to the list</source>
+        <target>Tornar a la llista</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Image size:</source>
+        <target>Mida de la imatge:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Original</source>
+        <target>Original</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Large thumbnail</source>
+        <target>Gran miniatura</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Small thumbnail</source>
+        <target>Petita miniatura</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Frame image</source>
+        <target>Encuadrar imatge</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Display description</source>
+        <target>Incloure descripció</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Image align:</source>
+        <target>Alineació de la imatge:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Width (%):</source>
+        <target>Ample (%) :</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Insert</source>
+        <target>Inserir</target>
+      </trans-unit>
+            <trans-unit>
+        <source>Your modifications have been saved</source>
+        <target>Les modificacions s'han grabat</target>
+      </trans-unit>
+            <trans-unit>
+        <source>The folder has been renamed</source>
+        <target>La carpeta s'ha canviat de nom</target>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>

@@ -1,17 +1,20 @@
-<?php use_stylesheet('/sf/sf_admin/css/main') ?>
-<?php use_helper('I18N', 'Date')?>
+<?php use_helper('I18N', 'Date','sfAsset');?>
+<?php if($sf_asset->isImage()) : ?>
+    <?php include_partial('edit_asset', array('sf_asset' => $sf_asset)); ?>
+<?php else : ?>
+<div class="foto_details">
+  <div class="asset_left">
+    <?php echo asset_image_tag($sf_asset, 'large',array('id' => 'original'),null, true) ?>
+  </div>
 
-<h1><?php echo __('Asset edition', null, 'sfAsset') ?></h1>
+  <div class="descripcio_block">
+    <p><strong>Fitxer:</strong> <?php echo auto_wrap_text($sf_asset->getFilename())?></p>
 
-<?php include_partial('sfAsset/edit_header', array('sf_asset' => $sfAsset)) ?>
-
-<div id="sf_asset_bar">
-  <?php include_partial('sfAsset/sidebar_edit', array('sf_asset' => $sfAsset, 'renameform' => $renameform, 'moveform' => $moveform, 'replaceform' => $replaceform)) ?>
+ <?php include_partial('edit_descripcio', array('sf_asset' => $sf_asset));?>
+    <div class="clear"></div>
+    <p><?php echo link_to('Obre el document',$sf_asset->getUrl());?></p>
+    <p><?php echo __('Created on %date%', array('%date%' => format_date($sf_asset->getCreatedAt('U'))), 'sfAsset') ?></p>
+</div>
 </div>
 
-<div id="sf_asset_container">
-  <?php include_partial('sfAsset/messages', array('sf_asset' => $sfAsset)) ?>
-  <?php include_partial('sfAsset/edit_form', array('sf_asset' => $sfAsset, 'form' => $form)) ?>
-</div>
-
-<?php include_partial('sfAsset/edit_footer', array('sf_asset' => $sfAsset)) ?>
+<?php endif ?>

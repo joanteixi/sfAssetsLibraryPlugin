@@ -1,4 +1,17 @@
-var sfAssetsLibrary_Engine = function(){};
+function sfAssetsLibrary_Engine()
+{
+  // Browser check
+  var ua = navigator.userAgent;
+  this.isMSIE = (navigator.appName == "Microsoft Internet Explorer");
+  this.isGecko = ua.indexOf('Gecko') != -1;
+  this.isOpera = ua.indexOf('Opera') != -1;
+
+  // Fake MSIE on Opera and if Opera fakes IE, Gecko or Safari cancel those
+  if (this.isOpera) {
+    this.isMSIE = true;
+    this.isGecko = false;
+  }
+}
 
 sfAssetsLibrary_Engine.prototype = {
   init : function(url)
@@ -6,102 +19,55 @@ sfAssetsLibrary_Engine.prototype = {
     this.url = url;
   },
 
-  load : function()
+  fileBrowserReturn : function (url)
   {
-    var asset_url = document.getElementById('sf_asset_js_url');
-    if (asset_url)
+    if(this.isTinyMCE)
     {
-      var url = asset_url.firstChild.data
-      this.url = url;
-    }
-    var asset_input = document.getElementById('sf_asset_input_image');
-    if (asset_input)
-    {
-      eval('var rel = ' + asset_input.getAttribute('rel'));
-      var fname = asset_input.previousSibling.previousSibling.form.name;
-      sfAssetsLibrary.addEvent(asset_input, 'click', function(e) {
-        sfAssetsLibrary.openWindow({
-          form_name: fname,
-          field_name: rel.name,
-          type: rel.type,
-          url: rel.url,
-          scrollbars: 'yes'
-        });
-        sfAssetsLibrary.prevDef(e);
-        sfAssetsLibrary.stopProp(e);
-      }, false);
-    }
-  },
-
-  fileBrowserReturn : function (url, thumbUrl, id)
-  {
-    if (this.isTinyMCE)
-    {
-      tinyMCE.setWindowArg('editor_id', this.fileBrowserWindowArg);
       if (this.fileBrowserType == 'image')
       {
-        this.callerWin.showPreviewImage(url);
+		if (this.callerWin.ImageDialog.getImageData) this.callerWin.ImageDialog.getImageData();
+        if (this.callerWin.ImageDialog.showPreviewImage) this.callerWin.ImageDialog.showPreviewImage(url);
+
       }
     }
-    this.callerWin.document.forms[this.callerFormName].elements[this.callerFieldName].value = id;
-    var img = this.callerWin.document.getElementById(this.callerFieldName + '_img');
-    if (img)
-    {
-      img.src = thumbUrl;
-    }
+    this.callerWin.document.forms[this.callerFormName].elements[this.callerFieldName].value = url;
   },
-
-  // tried to do multiple adds.
-  // not working: can't add DOM elements in a window different from current one :-|
-  fileBrowserAdd : function (url, id)
-  {
-    var ul = this.callerWin.document.getElementById('multiassets');
-    if (!ul)
-    {
-      return;
-    }
-    var li = this.callerWin.document.createElement('li');
-    var img = this.callerWin.document.createElement('img');
-    img.setAttribute('src', url);
-    li.appendChild(img);
-    ul.appendChild(ul);
-  },
-
+  
   fileBrowserCallBack : function (field_name, url, type, win)
   {
-    if (!this.url)
-    {
-      this.load();
-      if (!this.url)
-      {
-        alert('error in getting asset url');
-        return;
-      }
-    }
+    this.isTinyMCE = true;
+    var url = this.url;
+    if (type == 'image')
+      url += '/images_only/1';
 
-    var params = type == 'image' ? 'images_only=1&tiny=1' : 'tiny=1';
+    this.callerWin = win;
+    this.callerFormName = 0;
+    this.callerFieldName = field_name;
+    this.fileBrowserType = type;
+
     tinyMCE.activeEditor.windowManager.open({
-      file :      sfAssetsLibrary.addParams(this.url, params),
-      title:      'Assets',
-      width :     550,
-      height :    600,
-      inline:     'yes',
-      resizable : 'yes',
-      scrollbars: 'yes'
-    },
-    {
-      input:      field_name,
-      type:       type,
-      window:     win
+        file : url,
+        title : 'Assets',
+        width : 850,
+        height : 600,
+        resizable : "yes",
+        inline : "yes",
+        close_previous : "no",
+        scrollbars: 'yes'
+    }, {
+        window : win,
+        input : field_name,
+		inline : 'yes',
+		scrollbars: 'yes'
     });
 
-    return false;
+	return false;
   },
 
   openWindow : function(options)
   {
     var width, height, x, y, resizable, scrollbars, url;
-
+ 
     if (!options) return;
     if (!options['field_name']) return;
     if (options['url'])
@@ -117,8 +83,8 @@ sfAssetsLibrary_Engine.prototype = {
     this.callerFieldName = options['field_name'];
     this.fileBrowserType = options['type'];
     url = this.url;
-
-    if (options['type'] == 'image') url = sfAssetsLibrary.addParams(url, 'images_only=1');
+  
+    if (options['type'] == 'image') url += '/images_only/1';
     if (!(width = parseInt(options['width']))) width = 1000;
     if (!(height = parseInt(options['height']))) height = 600;
 
@@ -145,49 +111,7 @@ sfAssetsLibrary_Engine.prototype = {
     if (options['close_previous'] != "no") sfAssetsLibrary.lastWindow = win;
 
     win.focus();
-  },
-
-  addParams: function (url, params)
-  {
-    return url.indexOf('?') > 0 ? url + '&' + params : url + '?' + params;
-  },
-
-  // x-browser event listener
-  addEvent : function(el, eType, fn, uC)
-  {
-    if (el.addEventListener)
-    {
-      el.addEventListener(eType, fn, uC);
-      return true;
-    }
-    else if (el.attachEvent)
-    {
-      return el.attachEvent('on' + eType, fn);
-    }
-    else
-    {
-      el['on' + eType] = fn;
-    }
-  },
-
-  // x-browser stop propagation
-  stopProp : function(e)
-  {
-    if (e && e.stopPropogation) e.stopPropogation();
-    else if (window.event && window.event.cancelBubble)
-    window.event.cancelBubble = true;
-  },
-
-  // x-browser prevent default
-  prevDef : function(e)
-  {
-    if (e && e.preventDefault) e.preventDefault();
-    else if (window.event && window.event.returnValue)
-    window.eventReturnValue = false;
   }
-
 }
 
 var sfAssetsLibrary = new sfAssetsLibrary_Engine();
-
-window.onload = sfAssetsLibrary.load;

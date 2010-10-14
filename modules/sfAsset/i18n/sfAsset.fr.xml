@@ -71,28 +71,28 @@
         <target>Rechercher</target>
       </trans-unit>
       <trans-unit>
-        <source>Folder id</source>
-        <target>Répertoire</target>
+        <source>Folder:</source>
+        <target>Répertoire :</target>
       </trans-unit>
       <trans-unit>
-        <source>Filename</source>
-        <target>Nom du fichier</target>
+        <source>Filename:</source>
+        <target>Nom du fichier :</target>
       </trans-unit>
       <trans-unit>
-        <source>Author</source>
-        <target>Auteur</target>
+        <source>Author:</source>
+        <target>Auteur :</target>
       </trans-unit>
       <trans-unit>
-        <source>Copyright</source>
-        <target>Copyright</target>
+        <source>Copyright:</source>
+        <target>Copyright :</target>
       </trans-unit>
       <trans-unit>
-        <source>Created at</source>
-        <target>Ajouté le</target>
+        <source>Created on:</source>
+        <target>Ajouté le :</target>
       </trans-unit>
       <trans-unit>
-        <source>Description</source>
-        <target>Description</target>
+        <source>Description:</source>
+        <target>Description :</target>
       </trans-unit>
       <trans-unit>
         <source>Asset edition</source>
@@ -111,8 +111,8 @@
         <target>Nouveau fichier :</target>
       </trans-unit>
       <trans-unit>
-        <source>Parent folder</source>
-        <target>Déplacer dans</target>
+        <source>Parent folder:</source>
+        <target>Déplacer dans :</target>
       </trans-unit>
       <trans-unit>
         <source>Metadata</source>
@@ -123,8 +123,12 @@
         <target>Titre :</target>
       </trans-unit>
       <trans-unit>
-        <source>Type</source>
-        <target>Type</target>
+        <source>Description:</source>
+        <target>Description :</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Type:</source>
+        <target>Type :</target>
       </trans-unit>
       <trans-unit>
         <source>Search results</source>
@@ -167,16 +171,16 @@
         <target>[1]Un sous-répertoire|(1,+Inf)%nb% sous-répertoires</target>
       </trans-unit>
       <trans-unit>
-        <source>[1]One file, %weight% KiB|(1,+Inf]%nb% files, %weight% KiB</source>
-        <target>[1]Un fichier, %weight% Kio|(1,+Inf]%nb% fichiers, %weight% Kio</target>
+        <source>[1]One file, %weight% Kb|(1,+Inf]%nb% files, %weight% Kb</source>
+        <target>[1]Un fichier, %weight% Ko|(1,+Inf]%nb% fichiers, %weight% Ko</target>
       </trans-unit>
       <trans-unit>
         <source>See full-size version</source>
         <target>Voir la version originale</target>
       </trans-unit>
       <trans-unit>
-        <source>%weight% KiB</source>
-        <target>%weight% Kio</target>
+        <source>%weight% Kb</source>
+        <target>%weight% Ko</target>
       </trans-unit>
       <trans-unit>
         <source>Created on %date%</source>
@@ -329,15 +333,6 @@
       <trans-unit>
         <source>Insert</source>
         <target>Insérer</target>
-      </trans-unit>
-      <!-- TODO need to be translated! -->
-      <trans-unit>
-        <source>Your modifications have been saved</source>
-        <target>Your modifications have been saved</target>
-      </trans-unit>
-      <trans-unit>
-        <source>save</source>
-        <target>save</target>
       </trans-unit>
     </body>
   </file>

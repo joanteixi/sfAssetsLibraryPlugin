@@ -10,4 +10,4 @@
 <div class="warning">
 <h2><?php echo __($sf_user->getFlash('warning_message', null, ESC_RAW), $sf_user->getFlash('warning_params', null, ESC_RAW), 'sfAsset') ?></h2>
 </div>
-<?php endif ?>
+<?php endif; ?>

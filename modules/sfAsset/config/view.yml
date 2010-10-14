@@ -1,5 +1,5 @@
 all:
-  stylesheets: [%SF_ADMIN_WEB_DIR%/css/main, /sfAssetsLibraryPlugin/css/media]
+  stylesheets: [ -* ]
 
 listSuccess:
   javascripts: [/sfAssetsLibraryPlugin/js/popup]

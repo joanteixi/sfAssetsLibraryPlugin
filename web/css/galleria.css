@@ -1,0 +1,29 @@
+.galleria{list-style:none;width:200px}
+.galleria li{display:block;width:80px;height:80px;overflow:hidden;float:left;margin:0 10px 10px 0}
+.galleria li a{display:none}
+.galleria li div{position:absolute;display:none;top:0;left:180px}
+.galleria li div img{cursor:pointer}
+.galleria li.active div img,.galleria li.active div{display:block}
+.galleria li img.thumb{cursor:pointer;top:auto;left:auto;display:block;width:auto;height:auto}
+.galleria li .caption{display:block;padding-top:.5em}
+* html .galleria li div span{width:400px} /* MSIE bug */
+
+*{margin:0;padding:0}
+/*body{padding:20px;text-align:center;color:#bba;font:80%/140% georgia,serif;}*/
+.albums_list h2 {color:#bba; font:bold 80% 'helvetica neue',sans-serif;letter-spacing:3px;text-transform:uppercase;}
+.albums_list a {color:#348;text-decoration:none;outline:none;}
+.albums_list a:hover{color:#67a;}
+.caption {text-align: center; background-color:black;color:#888877;display:block;font-style:italic;margin:0 0 0 -1px;padding:5px;width:492px;}
+.demo{position:relative;margin-top:2em;}
+.gallery_demo{width:505px;margin:0 auto;}
+.gallery_demo li{width:68px;height:50px;border:3px double #111;margin: 0 2px;background:#000;}
+.gallery_demo li div{left:240px}
+.gallery_demo li div .caption{font:italic 0.7em/1.4 georgia,serif;}
+
+#main_image {border:1px solid #AFAFAF;margin:0 auto 35px;height:375px;width:500px;background:black;}
+/*#main_image img{margin-bottom:10px;}*/
+
+.nav{padding-top:15px;clear:both;font:80% 'helvetica neue',sans-serif;letter-spacing:3px;text-transform:uppercase;}
+
+.info{text-align:left;width:700px;margin:30px auto;border-top:1px dotted #221;padding-top:30px;}
+.info p{margin-top:1.6em;}
