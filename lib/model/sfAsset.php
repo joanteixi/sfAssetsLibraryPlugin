@@ -121,7 +121,7 @@ class sfAsset extends BasesfAsset
 
     public function supportsThumbnails()
     {
-        return $this->isImage() && class_exists('sfThumbnail');
+        return $this->isImage() && class_exists('sfImage');
     }
 
     /**

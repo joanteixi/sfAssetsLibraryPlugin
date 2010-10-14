@@ -19,15 +19,15 @@
          "parent_folder_id" : "<?php echo $sf_params->get('parent_folder_id') ?>"
          },
       file_size_limit : "100 MB",
-      file_types : "*.*",
-      file_types_description : "All Files",
+      file_types : "*.jpg",
+      file_types_description : "JPG Images",
       file_upload_limit : 100,
       file_queue_limit : 0,
       custom_settings : {
         progressTarget : "fsUploadProgress",
         cancelButtonId : "btnCancel"
       },
-      debug: false,
+      debug: true,
 
       // Button settings
       button_image_url: "/sfAssetsLibraryPlugin/swfupload/images/TestImageNoText_65x29.png",

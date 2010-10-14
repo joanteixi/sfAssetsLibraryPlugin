@@ -243,7 +243,6 @@ class sfAssetActions extends BasesfAssetActions {
     $valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';    // Characters allowed in the file name (in a Regular Expression format)
     $upload_name = "Filedata";
     $filename = preg_replace('/[^' . $valid_chars_regex . ']|\.+$/i', "", basename($_FILES[$upload_name]['name']));
-    $save_path = sfConfig::get('sf_web_dir') . "/media/temp/";
 
 
     //graba la imatge en la BD
