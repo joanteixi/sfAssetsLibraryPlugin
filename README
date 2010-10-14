@@ -1,9 +1,17 @@
-això és només la branca propel
-Prova des de local
 sfAssetsLibrary plugin
 ======================
+This is a fork of sfAssetsLibraryPlugin. It's based in 1.2 symfony version and propel ORM but can work with 1.3 version. Now, it's running
+with AJAX callings like ckEditor and similar.
 
-The `sfAssetsLibraryPlugin` is a full-featured multimedia asset library plugin. Not only does it allow you to upload and organize your media files (images, PDF documents, Flash objects, and so on) via a web interface, it also stores metadata about each file for easy retrieval or automated copyright and legend inclusion. It is the perfect companion for rich text editors like TinyMCE.
+It also has habilities for crop and resize images (using jCrop and ui-resize tools).
+
+The uploads are realized throught swfUpload libray.
+
+
+The `sfAssetsLibraryPlugin` is a full-featured multimedia asset library plugin. Not only does it allow you to upload and organize
+your media files (images, PDF documents, Flash objects, and so on) via a web interface, it also stores metadata about each file
+for easy retrieval or automated copyright and legend inclusion. It is the perfect companion for rich text editors like ckEditor.
+
 
 Screenshot
 ----------
@@ -14,7 +22,10 @@ Screenshot
 Prerequisites
 -------------
 
-This plugin for symfony 1.2 depends on [sfThumbnailPlugin](/plugins/sfThumbnailPlugin) to create thumbnails of image files. If this plugin is not yest installed, the symfony plugin dependency system will install it when you install sfAssetsLibraryPlugin.
+This plugin for symfony 1.2 depends on [sfImageTransform](/plugins/sfThumbnailPlugin) to create thumbnails of image files.
+If this plugin is not yest installed, the symfony plugin dependency system will install it when you install sfAssetsLibraryPlugin.
+
+Also it needs sfJquerReloadedPlugin for some jquery actions and jquery loaded (the plugin don't load it). 
 
 Note: If [ImageMagick](http://www.imagemagick.org/) is installed (no need for the PEAR Imagick package, the plugin calls the `convert` script of the basic Image Magic library), then the image thumbnails will be of better quality. See the "Configuration" section below for the way to activate ImageMagick support in the plugin.
 
