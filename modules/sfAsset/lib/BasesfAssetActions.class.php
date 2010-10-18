@@ -212,7 +212,7 @@ class BasesfAssetActions extends sfActions {
         return $this->renderText(json_encode($json));
       }
       $folder = new sfAssetFolder();
-      $folder->setName($this->getRequestParameter('name'));
+      $folder->setName(sfAssetsLibraryTools::sanitizeFolderName($this->getRequestParameter('name')));
       $folder->insertAsLastChildOf($parentFolder);
       $folder->save();
 
@@ -410,6 +410,7 @@ class BasesfAssetActions extends sfActions {
   }
 
   public function executeMoveAsset() {
+    sfLoader::loadHelpers(array('I18N'));
     $this->forward404Unless($this->getRequest()->getMethod() == sfRequest::POST);
     $id = substr(strrchr($this->getRequestParameter('id'), '_'), 1);
     $sf_asset = sfAssetPeer::retrieveByPk($id);
@@ -422,7 +423,7 @@ class BasesfAssetActions extends sfActions {
         $sf_asset->save();
         return $this->renderText('success');
       } catch (sfAssetException $e) {
-        $error = $e->getMessage();
+        $error = __($e->getMessage(), $e->getMessageParams());
       }
     } else {
       $error = "La carpeta de destí és la mateixa que la carpeta original. No s'ha mogut el fitxer.";
@@ -454,7 +455,7 @@ class BasesfAssetActions extends sfActions {
    */
   public function executeSaveDescription($request) {
     $this->forward404Unless($this->getRequest()->getMethod() == sfRequest::POST);
-    $params = explode('_', $this->getRequestParameter('id'));
+    $params = explode('-', $this->getRequestParameter('id'));
 
     $sf_asset = sfAssetPeer::retrieveByPk($params[0]);
     $this->forward404Unless($sf_asset);
@@ -465,20 +466,22 @@ class BasesfAssetActions extends sfActions {
   }
 
   public function executeRenameAsset() {
-//        $this->forward404Unless($this->getRequest()->getMethod() == sfRequest::POST);
     $id = substr(strrchr($this->getRequestParameter('id'), '_'), 1);
     $sf_asset = sfAssetPeer::retrieveByPk($id);
     $this->forward404Unless($sf_asset);
-    $name = $this->getRequestParameter('new_name');
+    $name = sfAssetsLibraryTools::sanitizeName($this->getRequestParameter('new_name'));
     $this->forward404Unless($name);
+    //afegeix extensió antiga
+    $extension = strrchr($sf_asset->getFilename(),'.');
+    $name = $name.$extension;
     if ($sf_asset->getFilename() != $name) {
       try {
         $sf_asset->move($sf_asset->getsfAssetFolder(), $name);
         $sf_asset->save();
         $this->getUser()->setFlash('notice', 'The file has been renamed');
       } catch (sfAssetException $e) {
-        $this->getUser()->setFlash('warning_message', $e->getMessage());
-        $this->getUser()->setFlash('warning_params', $e->getMessageParams());
+        iogAjaxUtil::decorateJsonResponse($this->getResponse());
+        return $this->renderText('{The target folder}');
       }
     } else {
       $this->getUser()->setFlash('notice', 'The target name is the same as the original name. The asset has not been renamed.');

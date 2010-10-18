@@ -253,9 +253,10 @@ class sfAssetActions extends BasesfAssetActions {
     $asset->create($_FILES[$upload_name]["tmp_name"]);
     $asset->save();
     iogAjaxUtil::decorateJsonResponse($this->getResponse());
-    //retorna la ruta al thumbnail per mostrar-lo en el upload.
-
-    return $this->renderText($asset->getUrl("small"));
+    $json = array('id' => $asset->getId(), 'url' => $asset->getUrl("small"));
+//retorna la ruta i el id del thumbnail per mostrar-lo en el upload. Recollit per uploadSuccess (at handlers.js) de swfUpload
+    return $this->renderText(json_encode($json));
+//    return $this->renderText('   $asset->getUrl("small"));
   }
 
   /**

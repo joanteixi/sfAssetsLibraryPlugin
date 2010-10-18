@@ -100,17 +100,17 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 	}
 }
 function uploadSuccess(file, data) {
+        data = eval('(' + data + ')');
         try {
 		var progress = new FileProgress(file,  this.customSettings.upload_target);
                 if(data)
                   {
-			addImage(data);
-                        progress.setThumbnail(data);
+                        progress.setThumbnail(data.id, data.url);
 			progress.setStatus("Thumbnail Created.");
 			progress.toggleCancel(false);
 
 		} else {
-			addImage("images/error.gif");
+			progress.setThumbnail("images/error.gif");
 			progress.setStatus("Error.");
 			progress.toggleCancel(false);
 			alert(json);
@@ -187,8 +187,6 @@ function queueComplete(numFilesUploaded) {
 	status.innerHTML = numFilesUploaded + " file" + (numFilesUploaded === 1 ? "" : "s") + " uploaded.";
 }
 
-
-
 function addImage(src) {
 	var newImg = document.createElement("img");
 	newImg.style.margin = "5px";
@@ -199,3 +197,5 @@ function addImage(src) {
 //	};
 	newImg.src = src;
 }
+
+

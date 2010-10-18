@@ -123,8 +123,9 @@ FileProgress.prototype.setCancelled = function () {
 FileProgress.prototype.setStatus = function (status) {
 	this.fileProgressElement.childNodes[2].innerHTML = status;
 };
-FileProgress.prototype.setThumbnail = function (url) {
-   this.fileProgressElement.childNodes[1].innerHTML = "<img src='"+url+"' />";
+FileProgress.prototype.setThumbnail = function (id, url) {
+   $('#fsUploadProgress span').after("<div id='"+id+"' class='upload_thumbnail'><img  src='"+url+"' /><p>Clica per editar</p></div>");
+//   this.fileProgressElement.childNodes[1].innerHTML = "<img src='"+url+"' />";
 }
 // Show/Hide the cancel button
 FileProgress.prototype.toggleCancel = function (show, swfUploadInstance) {

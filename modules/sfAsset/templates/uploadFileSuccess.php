@@ -19,15 +19,15 @@
          "parent_folder_id" : "<?php echo $sf_params->get('parent_folder_id') ?>"
          },
       file_size_limit : "100 MB",
-      file_types : "*.jpg",
-      file_types_description : "JPG Images",
+      file_types : "*.jpg; *.pdf",
+      file_types_description : "JPG Images, PDF docs",
       file_upload_limit : 100,
       file_queue_limit : 0,
       custom_settings : {
         progressTarget : "fsUploadProgress",
         cancelButtonId : "btnCancel"
       },
-      debug: true,
+      debug: false,
 
       // Button settings
       button_image_url: "/sfAssetsLibraryPlugin/swfupload/images/TestImageNoText_65x29.png",
@@ -52,6 +52,11 @@
     };
 
     swfu = new SWFUpload(settings);
+
+    //Afegir clicks per editar les imatges
+    $('.upload_thumbnail').live('click',function() {
+      $('#file_window').load("<?php echo url_for('sfAsset/edit')?>/id/"+this.id);
+    })
 })
 
 </script>

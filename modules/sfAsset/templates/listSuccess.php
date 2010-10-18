@@ -2,7 +2,7 @@
 <?php use_stylesheet('backend.css', 'last') ?>
 <?php use_stylesheet('/sfAssetsLibraryPlugin/css/media.css') ?>
 <?php use_javascript('/sfAssetsLibraryPlugin/js/jsTree/jquery.jstree.js')  //filetree functions            ?>
-<?php use_javascript('/sfAssetsLibraryPlugin/js/contextBasicMenu.js'); //   context menú right button             ?>
+<?php use_javascript('/sfAssetsLibraryPlugin/js/jquery.contextMenu/contextBasicMenu.js'); //   context menú right button             ?>
 <?php use_stylesheet('/sfAssetsLibraryPlugin/js/jquery.contextMenu/jquery.contextMenu.css'); // context menú right button            ?>
 <?php use_javascript('/sfAssetsLibraryPlugin/js/edit.js'); ?>
 <?php use_javascript('/sfAssetsLibraryPlugin/js/jeditable.js'); // edit in context             ?>
@@ -87,20 +87,20 @@
               "create" : {
                 "separator_before"	: false,
                 "separator_after"	: true,
-                "label"			: "Create",
+                "label"			: "Nova carpeta",
                 "action"		: function (obj) { this.create(obj); }
               },
               "rename" : {
                 "separator_before"	: false,
                 "separator_after"	: false,
-                "label"			: "Rename",
+                "label"			: "Renombrar",
                 "action"		: function (obj) { this.rename(obj); }
               },
               "remove" : {
                 "separator_before"	: false,
                 "icon"			: false,
                 "separator_after"	: false,
-                "label"			: "Delete",
+                "label"			: "Esborrar",
                 "action"		: function (obj) {
                   if(confirm("Segur que vols esborrar aquesta carpeta i tot el que conté?")) {
                     this.remove(obj);

@@ -70,11 +70,22 @@ class sfAssetsLibraryTools {
 
     return $info;
   }
-
+ public static function sanitizeFolderName($folder)
+ {
+    $folder = self::stripAccents($folder);
+     return preg_replace('/[^a-z0-9_ \.-]/i', '_', $folder);
+ }
   public static function sanitizeName($file) {
+    $file = self::stripAccents($file);
     return preg_replace('/[^a-z0-9_\.-]/i', '_', $file);
   }
 
+  public static function stripAccents($text) {
+        $pattern = array('/à|á/','/é|è/','/í/','/ó|ò/','/ú/','/Á|À/','/É|È/','/Í/','/Ó|Ò/','/Ú/','/ñ|Ñ/','/:/');
+        $subs = array('a','e','i','o','u','A','E','I','O','U','ñ','_');
+        $text = preg_replace($pattern, $subs, $text);
+        return $text;
+  }
   public static function mkdir($dirName, $parentDirName) {
     $dirName = rtrim($dirName, '/');
 

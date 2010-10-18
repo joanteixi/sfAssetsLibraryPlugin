@@ -328,3 +328,7 @@ ul.descripcio li { margin: 7px 0;}
 .descripcio_block { margin-left: 68px}
 /** llistat d'imatges **/
 .assetImage:hover {background-color: #ffe45c}
+
+/** edit uploads in sfwUpload **/
+.upload_thumbnail:hover { opacity:0.5}
+.upload_thumbnail{ opacity: 1;cursor:pointer}

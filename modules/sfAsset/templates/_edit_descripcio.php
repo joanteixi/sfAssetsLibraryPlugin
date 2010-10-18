@@ -1,7 +1,7 @@
   <h4>Descripció<span class="ajuda" > Clica un cop en la descripció per canviar-la en cada idioma</span></h4>
     <ul class="descripcio">
         <?php foreach (sfConfig::get('app_idiomes_web',array('Català' => 'ca_ES')) as $key=>$value) : ?>
-        <li><strong>Descripció [<?php echo $key?>]: </strong><span class="editable" id ="<?php echo $sf_asset->getId().'_'.$value?>"> <?php echo $sf_asset->getDescription($value)?> </span></li>
+        <li><strong>Descripció [<?php echo $key?>]: </strong><span class="editable" id ="<?php echo $sf_asset->getId().'-'.$value?>"> <?php echo $sf_asset->getDescription($value)?> </span></li>
         <?php endforeach ?>
 
     </ul>
