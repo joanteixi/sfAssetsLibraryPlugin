@@ -11,7 +11,8 @@
     </ul>
 </div>
 
-<div style="display:none">    <ul class="contextMenu" id="context_folder_menu">
+<div style="display:none">
+  <ul class="contextMenu" id="context_folder_menu">
       <li id="crear" class="new"><a href="#crear">Crear nova carpeta</a></li>
       <li id="pujar_fitxer" class="upload"><a href="#pujar_fitxer">Afegir fitxers</a><li>
       <li id="rename_folder" class="rename"><a href="#rename">Canviar el nom</a></li>

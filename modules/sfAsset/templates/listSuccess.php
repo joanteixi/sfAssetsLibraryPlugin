@@ -2,8 +2,11 @@
 <?php use_stylesheet('backend.css', 'last') ?>
 <?php use_stylesheet('/sfAssetsLibraryPlugin/css/media.css') ?>
 <?php use_javascript('/sfAssetsLibraryPlugin/js/jsTree/jquery.jstree.js')  //filetree functions            ?>
+
+<!-- context Menu files -->
 <?php use_javascript('/sfAssetsLibraryPlugin/js/jquery.contextMenu/contextBasicMenu.js'); //   context menú right button             ?>
 <?php use_stylesheet('/sfAssetsLibraryPlugin/js/jquery.contextMenu/jquery.contextMenu.css'); // context menú right button            ?>
+
 <?php use_javascript('/sfAssetsLibraryPlugin/js/edit.js'); ?>
 <?php use_javascript('/sfAssetsLibraryPlugin/js/jeditable.js'); // edit in context             ?>
 

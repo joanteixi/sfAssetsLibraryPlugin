@@ -47,7 +47,7 @@
             width: '180px'
           },
           itemStyle : {
-            padding: '0 3px 0 28px'
+            padding: '0 3px 0 20px'
           },
           onShowMenu: function(e, menu) {
             if ($('#is_popup').val() == 0)

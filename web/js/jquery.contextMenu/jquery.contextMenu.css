@@ -1,0 +1,5 @@
+#jqContextMenu li { background-repeat: no-repeat;background-position:  0 50%}
+#jqContextMenu li#edit_file { background-image:url(/sfAssetsLibraryPlugin/images/edit.png) }
+#jqContextMenu li#rename_file { background-image:url(/sfAssetsLibraryPlugin/images/rename_file.png) }
+#jqContextMenu li#move_file { background-image:url(/sfAssetsLibraryPlugin/images/page_white_copy.png) }
+#jqContextMenu li#delete_file { background-image:url(/sfAssetsLibraryPlugin/images/page_delete.png) }
