@@ -309,10 +309,7 @@ class sfAssetFolder extends BasesfAssetFolderNestedSet
     }    
     else if ($name !== $this->getName())
     {
-      if(sfAssetsLibraryTools::sanitizeName($name) != $name)
-      {
-        throw new sfAssetException('The target folder name "%name%" contains incorrect characters. The folder has not be renamed.', array('%name%' => $name));
-      }
+      $name = sfAssetsLibraryTools::sanitizeFolderName($name);
       $old_path = $this->getFullPath();
       $this->setName($name);
       $this->save();

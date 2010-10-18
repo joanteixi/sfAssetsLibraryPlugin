@@ -3,3 +3,5 @@
 #jqContextMenu li#rename_file { background-image:url(/sfAssetsLibraryPlugin/images/rename_file.png) }
 #jqContextMenu li#move_file { background-image:url(/sfAssetsLibraryPlugin/images/page_white_copy.png) }
 #jqContextMenu li#delete_file { background-image:url(/sfAssetsLibraryPlugin/images/page_delete.png) }
+#jqContextMenu li#select_full, li#select_large, li#select_small { background-image:url(/sfAssetsLibraryPlugin/images/images.png) }
+#jqContextMenu ul li.separator {background-color:#CCCCCC !important;border:none !important;padding:5px 3px 5px 5px !important}

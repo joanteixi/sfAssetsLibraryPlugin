@@ -6,8 +6,8 @@
       <li id="delete_file" class="delete_file">Esborrar</li>
       <li id="select_full" class="select_full">Selecciona original</li>
       <li id="separator_images" class="separator">Imatges</li>
-      <li id="select_small" class="select_small">Selecciona miniatura</li>
       <li id="select_large" class="select_large ">Selecciona mitjana</li>
+      <li id="select_small" class="select_small">Selecciona miniatura</li>
     </ul>
 </div>
 

@@ -30,6 +30,7 @@
 <?php include_partial('list_header', array('folder' => $folder)) ?>
 <?php endif; ?>
 
+<input type="hidden" id="is_popup" value="<?php echo $sf_user->hasAttribute('popup', 'sf_admin/sf_asset/navigation') ? $sf_user->getAttribute('popup', null,'sf_admin/sf_asset/navigation') : '0' ?>" />
 
 
   <div id="sf_asset_left">
