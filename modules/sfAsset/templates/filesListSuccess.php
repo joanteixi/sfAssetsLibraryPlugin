@@ -1,5 +1,6 @@
 <?php use_helper('sfAsset'); ?>
-
+<?php //create an input hidden tag to control from javascript code if is popup ?>
+<input type="hidden" id="is_popup" value="<?php echo $sf_user->hasAttribute('popup', 'sf_admin/sf_asset/navigation') ? '1' : '0' ?>" />
 <?php if (count($files)) : ?>
 <?php
   foreach ($files as $asset) {
@@ -48,6 +49,14 @@
           itemStyle : {
             padding: '0 3px 0 28px'
           },
+          onShowMenu: function(e, menu) {
+            if ($('#is_popup').val() == 0)
+              {
+                $('#select_full, #select_small, #select_large,#separator_images',menu).remove()
+              }
+            return menu
+          },
+
           bindings: {
             'edit_file' : function(t) {
               $(t).find('a').trigger('click');
@@ -116,7 +125,6 @@
                 haystack = $(this).attr('href')+"";
                 needle = '#';
                 href = haystack.slice( haystack.indexOf( needle ) +1 );
-                //      $('#edit_window').load(href);
                 $('#file_window').load(href);
                 return false;
               })
@@ -126,7 +134,6 @@
                 'titleShow'		: false,
                 'onComplete'            : function() { $('#nom_fitxer').focus() },
                 'onClosed'		: function() {
-                  //                $("#login_error").hide();
                 }
 
               });
@@ -138,7 +145,6 @@
                 'height'                : 100,
                 'autoDimensions'        : false,
                 'onClosed'		: function() {
-                  //                $("#login_error").hide();
                 }
 
               });
