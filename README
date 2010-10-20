@@ -99,17 +99,17 @@ In the above example, uploaded files will be stored under the `web/media` direct
 This is mandatory to upload files with swfUpload due a problem with flash and sessions.
 
 
-4 - Clear the cache to enable the autoloading to find the new classes:
+5 - Clear the cache to enable the autoloading to find the new classes:
     
     > php symfony cc
 
-5 - Use the bundled `asset:create-root` task to initialize the root asset directory in the filesystem and in the database. The name of the root asset directory will be read from the `app.yml` configuration you just defined:
+6 - Use the bundled `asset:create-root` task to initialize the root asset directory in the filesystem and in the database. The name of the root asset directory will be read from the `app.yml` configuration you just defined:
 
     > php symfony asset:create-root
  
 Note: *nix users must call this command with the same user group as the http server, because it will need write access to this directory.
 
-6 - You can now start using the plugin by browsing to the backend module's default page:
+7 - You can now start using the plugin by browsing to the backend module's default page:
     
     http://myproject/backend_dev.php/sfAsset
 
