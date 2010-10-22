@@ -22,6 +22,9 @@
 <?php use_javascript('/sfAssetsLibraryPlugin/js/jquery.ui/jquery-ui-1.8.resize.min.js'); ?>
 <?php use_stylesheet('/sfAssetsLibraryPlugin/js/jquery.ui/ui-lightness/jquery-ui-1.8.2.rezisable.css'); ?>
 
+<!-- add popup css style when popup window -->
+<?php if($sf_user->hasAttribute('popup', 'sf_admin/sf_asset/navigation')) use_stylesheet ("/sfAssetsLibraryPlugin/css/popup.css");?>
+
 <?php use_helper('I18N') ?>
 <div id="mediateca"
 <h1><?php echo __('Asset Library', null, 'sfAsset') ?></h1>
