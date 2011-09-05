@@ -243,26 +243,6 @@ class BasesfAssetActions extends sfActions {
     return $this->redirectToPath('sfAsset/list?dir=' . $folder->getRelativePath());
   }
 
-//    public function executeRenameFolder()
-//    {
-//        $this->forward404Unless($this->getRequest()->getMethod() == sfRequest::POST);
-//        $folder = sfAssetFolderPeer::retrieveByPk($this->getRequestParameter('id'));
-//        $this->forward404Unless($folder);
-//        $newName = $this->getRequestParameter('new_name');
-//        try
-//        {
-//            $folder->rename($newName);
-//            $this->getUser()->setFlash('notice', 'The folder has been renamed');
-//        }
-//        catch (sfAssetException $e)
-//        {
-//
-//            $this->getUser()->setFlash('warning_message', $e->getMessage());
-//            $this->getUser()->setFlash('warning_params', $e->getMessageParams());
-//        }
-//
-//        return $this->redirectToPath('sfAsset/list?dir=' . $folder->getRelativePath());
-//    }
 
   public function executeDeleteFolder() {
     if ($this->getRequest()->getMethod() != sfRequest::POST) {
@@ -279,8 +259,9 @@ class BasesfAssetActions extends sfActions {
       iogAjaxUtil::decorateJsonResponse($this->getResponse());
       return $this->renderText("[ok]");
     } catch (sfAssetException $e) {
-           return $this->returnJsonError($e->getMessage());
-    }
+           return $this->returnJsonError(strtr($e->getMessage(),$e->getMessageParams()));
+
+      }
   }
 
   public function executeAddQuick() {

@@ -18,12 +18,10 @@ propel:
     id:
     folder_id:        { type: integer, foreignTable: sf_asset_folder, foreignReference: id, required: true, onDelete: CASCADE, onUpdate: CASCADE }
     filename:         varchar(255)
-    description_antic:      longvarchar
     author:           varchar(255)
     copyright:        varchar(100)
     type:             varchar(10)
     filesize:         integer
-    rank:             integer
     is_public:        boolean
     created_at:
     _uniques:

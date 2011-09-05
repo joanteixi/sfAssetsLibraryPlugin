@@ -355,8 +355,8 @@ class sfAssetFolder extends BasesfAssetFolderNestedSet
     }
     else
     {
-      throw new sfAssetException('Impossible to delete folder "%name%"', array('%name%' => $this->getName()));
-    }
+      throw new sfAssetException('No es pot esborrar la carpeta "%name%"', array('%name%' => $this->getName()));
+      }
   }
   
   public function getParentPath()

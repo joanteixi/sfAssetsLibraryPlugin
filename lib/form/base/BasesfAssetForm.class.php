@@ -8,7 +8,6 @@
  * @package    ##PROJECT_NAME##
  * @subpackage form
  * @author     ##AUTHOR_NAME##
- * @version    SVN: $Id: sfPropelFormGeneratedTemplate.php 24051 2009-11-16 21:08:08Z Kris.Wallsmith $
  */
 abstract class BasesfAssetForm extends BaseFormPropel
 {
@@ -29,7 +28,7 @@ abstract class BasesfAssetForm extends BaseFormPropel
     ));
 
     $this->setValidators(array(
-      'id'                => new sfValidatorPropelChoice(array('model' => 'sfAsset', 'column' => 'id', 'required' => false)),
+      'id'                => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
       'folder_id'         => new sfValidatorPropelChoice(array('model' => 'sfAssetFolder', 'column' => 'id')),
       'filename'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'description_antic' => new sfValidatorString(array('required' => false)),
